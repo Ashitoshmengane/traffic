@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Traffic Signals</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <style>
+    body {
+        background-color: rgb(190, 230, 252);
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start; /* Start from top */
+      overflow: hidden; /* 🔴 Prevent scrolling */
+      padding-top: 10vh; /* 🔹 Responsive top space */
+
+     
+    }
+
+ 
+
+    .container {
+
+        padding-top: 5vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3vh; /* Space between circles */
+      width: 16vh;
+      height: 30vh;
+      border-radius: 10px;
+      border: 1px solid rgb(85, 130, 155);
+      background-color: rgb(149, 191, 213);
+      /* background-color: rgb(103, 103, 103); */
+    }
+
+    .circle {
+        /* padding-top: 4vh; */
+
+      width: 6vh;
+      height: 6vh;
+      max-width: 80px;
+      max-height: 80px;
+      border-radius: 50%;
+      border: 2px solid rgb(50, 80, 97);
+      transition: background-color 0.4s ease;
+    }
+
+    #red1{
+        padding: 6px;
+        position: relative;
+        top: 15px;
+        left: -66px;
+        width: 80px;
+        border-radius: 4px;
+        background-color: rgb(255, 86, 86);
+    }
+
+    #yellow1{
+        /* display: flex; */
+        color: rgb(81, 81, 81);
+        padding: 6px;
+        position: relative;
+        top: 15px;
+        left: -60px;
+        width: 80px;
+        border-radius: 4px;
+        background-color: rgb(239, 255, 99);
+    }
+
+     #green1{
+        color: rgb(95, 95, 95);
+        padding: 6px;
+        position: relative;
+        top: 15px;
+        left: -55px;
+        width: 80px;
+        border-radius: 4px;
+        background-color: rgb(76, 255, 94);
+    }
+
+    #red1:hover {
+  color: white;
+  background-color: rgb(249, 28, 28);
+  box-shadow: 2px 2px 13px -1px rgba(0, 0, 0, 0.4);
+  transform: scale(1.1); /* 🔹 Slightly increase size */
+}
+
+
+    #yellow1:hover {
+  color: rgb(0, 0, 0);
+  background-color: rgb(227, 249, 28);
+  box-shadow: 2px 2px 13px -1px rgba(0, 0, 0, 0.4);
+  transform: scale(1.1); /* 🔹 Slightly increase size */
+}
+
+
+    #green1:hover {
+  color: rgb(0, 0, 0);
+  background-color: rgb(28, 249, 35);
+  box-shadow: 2px 2px 13px -1px rgba(0, 0, 0, 0.4);
+  transform: scale(1.1); /* 🔹 Slightly increase size */
+}
+   
+  </style>
+</head>
+<body>
+
+<div class="mian-container">
+  <div class="container">
+    <div class="circle red" id="redd"></div>
+    <div class="circle yellow" id="yell"></div>
+    <div class="circle green" id="gree"></div>
+   
+  </div>
+    <button id="red1">RED</button>
+   <button id="yellow1">YELLOW</button>
+   <button id="green1">GREEN</button>
+   </div>
+
+
+
+
+   <!-- scripting for Jquery -->
+<script>
+  $(document).ready(function(){
+    $("#red1").click(function(){
+      $("#redd").css("background-color", "red");
+      $("#yell, #gree").css("background-color", ""); // Remove yellow & green
+    });
+
+    $("#yellow1").click(function(){
+      $("#yell").css("background-color", "yellow");
+      $("#redd, #gree").css("background-color", ""); // Remove red & green
+    });
+
+    $("#green1").click(function(){
+      $("#gree").css("background-color", "green");
+      $("#redd, #yell").css("background-color", ""); // Remove red & yellow
+    });
+  });
+</script>
+
+ 
+</body>
+</html>
